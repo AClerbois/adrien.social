@@ -1,100 +1,518 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adrien Social Links</title>
-    <meta name="description" content="Discover the social links of Adrien Clerbois, Microsoft MVP and founder of Sense of Tech.">
+    <title>Adrien Clerbois — Microsoft MVP & Founder of Sense of Tech</title>
+    <meta name="description" content="The official link hub of Adrien Clerbois — Microsoft MVP and founder of Sense of Tech. Find all my social profiles in one place.">
+    <meta name="author" content="Adrien Clerbois">
     <meta name="robots" content="index, follow">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" content="#002244">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://adrien.social/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="Adrien Clerbois">
+    <meta property="og:title" content="Adrien Clerbois — Microsoft MVP & Founder of Sense of Tech">
+    <meta property="og:description" content="The official link hub of Adrien Clerbois — Microsoft MVP and founder of Sense of Tech. All my social profiles in one place.">
+    <meta property="og:url" content="https://adrien.social/">
+    <meta property="og:image" content="https://adrien.social/img/profilesportpicture.jpg">
+    <meta property="profile:first_name" content="Adrien">
+    <meta property="profile:last_name" content="Clerbois">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Adrien Clerbois — Microsoft MVP & Founder of Sense of Tech">
+    <meta name="twitter:description" content="The official link hub of Adrien Clerbois. All my social profiles in one place.">
+    <meta name="twitter:image" content="https://adrien.social/img/profilesportpicture.jpg">
+    <meta name="twitter:site" content="@aclerbois">
+    <meta name="twitter:creator" content="@aclerbois">
+
+    <!-- Inline SVG favicon (no extra file needed) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23002244'/%3E%3Ctext x='50' y='68' font-family='Segoe UI,Arial,sans-serif' font-size='52' font-weight='700' fill='%2369BE28' text-anchor='middle'%3EAC%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Structured data for richer search results -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Adrien Clerbois",
+        "url": "https://adrien.social/",
+        "image": "https://adrien.social/img/profilesportpicture.jpg",
+        "jobTitle": "Microsoft MVP, Founder",
+        "worksFor": { "@type": "Organization", "name": "Sense of Tech" },
+        "email": "mailto:adrien@senseof.tech",
+        "sameAs": [
+            "https://www.facebook.com/adrien.clerbois/",
+            "https://x.com/aclerbois",
+            "https://www.linkedin.com/in/aclerbois",
+            "https://github.com/aclerbois",
+            "https://mvp.microsoft.com/en-US/MVP/profile/2b728ade-7733-e611-8129-c4346bac7bfc"
+        ]
+    }
+    </script>
+
     <style>
+        :root {
+            --navy:      #002244;
+            --green:     #69BE28;
+            --green-lt:  #8fe04a;
+            --grey:      #A5ACAF;
+
+            /* Dark theme (default) */
+            --bg-1:      #001427;
+            --bg-2:      #002244;
+            --bg-3:      #06304f;
+            --card-bg:   rgba(255, 255, 255, 0.06);
+            --card-brd:  rgba(255, 255, 255, 0.12);
+            --card-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+            --text:      #eef3f6;
+            --text-dim:  #a5acaf;
+            --link-bg:   rgba(255, 255, 255, 0.05);
+            --link-brd:  rgba(255, 255, 255, 0.12);
+            --accent:    var(--green);
+        }
+
+        [data-theme="light"] {
+            --bg-1:      #eef2f5;
+            --bg-2:      #dfe7ec;
+            --bg-3:      #cfdbe4;
+            --card-bg:   rgba(255, 255, 255, 0.7);
+            --card-brd:  rgba(0, 34, 68, 0.1);
+            --card-shadow: 0 24px 60px rgba(0, 34, 68, 0.18);
+            --text:      #002244;
+            --text-dim:  #5c6b78;
+            --link-bg:   rgba(255, 255, 255, 0.65);
+            --link-brd:  rgba(0, 34, 68, 0.12);
+            --accent:    #55a017;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            margin: 0;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #002244; /* Navy Blue */
+            padding: 40px 18px;
+            color: var(--text);
+            background: var(--bg-1);
+            overflow-x: hidden;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
-        .container {
-            text-align: center;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 600px;
+
+        /* Animated aurora background */
+        .aurora {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            background: var(--bg-1);
         }
-        img {
+        .aurora::before,
+        .aurora::after {
+            content: "";
+            position: absolute;
+            width: 60vmax;
+            height: 60vmax;
             border-radius: 50%;
-            width: 150px;
-            height: 150px;
+            filter: blur(70px);
+            opacity: 0.55;
+            will-change: transform;
+        }
+        .aurora::before {
+            top: -20%;
+            left: -10%;
+            background: radial-gradient(circle at center, var(--green) 0%, transparent 65%);
+            animation: drift1 18s ease-in-out infinite alternate;
+        }
+        .aurora::after {
+            bottom: -25%;
+            right: -15%;
+            background: radial-gradient(circle at center, var(--bg-3) 0%, transparent 65%);
+            animation: drift2 22s ease-in-out infinite alternate;
+        }
+
+        @keyframes drift1 {
+            from { transform: translate(0, 0) scale(1); }
+            to   { transform: translate(12vw, 10vh) scale(1.25); }
+        }
+        @keyframes drift2 {
+            from { transform: translate(0, 0) scale(1.1); }
+            to   { transform: translate(-14vw, -8vh) scale(1); }
+        }
+
+        /* Card */
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 460px;
+            padding: 40px 32px 28px;
+            text-align: center;
+            background: var(--card-bg);
+            border: 1px solid var(--card-brd);
+            border-radius: 28px;
+            box-shadow: var(--card-shadow);
+            backdrop-filter: blur(20px) saturate(160%);
+            -webkit-backdrop-filter: blur(20px) saturate(160%);
+            animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Avatar with glowing gradient ring */
+        .avatar-wrap {
+            position: relative;
+            width: 132px;
+            height: 132px;
+            margin: 0 auto 18px;
+        }
+        .avatar-ring {
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, var(--green), var(--bg-3), var(--green-lt), var(--green));
+            animation: spin 6s linear infinite;
+            filter: drop-shadow(0 0 14px rgba(105, 190, 40, 0.45));
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .avatar {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
             object-fit: cover;
+            border: 4px solid var(--bg-2);
         }
+        .badge {
+            position: absolute;
+            right: 2px;
+            bottom: 2px;
+            width: 34px;
+            height: 34px;
+            background: var(--bg-2);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            border: 2px solid var(--green);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        .badge svg { width: 18px; height: 18px; }
+
         h1 {
-            margin: 10px 0;
-            font-size: 24px;
-            color: #69BE28; /* Action Green */
+            margin: 6px 0 4px;
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text);
         }
-        h2 {
-            font-size: 18px;
-            margin: 5px 0;
-            color: #A5ACAF; /* Wolf Grey */
+        .tagline {
+            margin: 0 0 8px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-dim);
         }
-        .links a {
-            display: block;
-            margin: 10px 0;
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 26px;
+        }
+        .pill {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 999px;
+            color: var(--accent);
+            background: color-mix(in srgb, var(--accent) 14%, transparent);
+            border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+        }
+
+        /* Links */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 18px;
             text-decoration: none;
-            color: #69BE28; /* Action Green */
-            font-size: 18px;
-            padding: 10px 20px;
-            border: 2px solid #69BE28; /* Action Green */
-            border-radius: 25px;
-            transition: background-color 0.3s, color 0.3s;
+            color: var(--text);
+            font-size: 15px;
+            font-weight: 600;
+            background: var(--link-bg);
+            border: 1px solid var(--link-brd);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                        border-color 0.22s, background-color 0.22s, box-shadow 0.22s;
+            animation: rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
-        .links a:hover {
-            background-color: #69BE28; /* Action Green */
-            color: #002244; /* Navy Blue */
+        .link:nth-child(1) { animation-delay: 0.05s; }
+        .link:nth-child(2) { animation-delay: 0.10s; }
+        .link:nth-child(3) { animation-delay: 0.15s; }
+        .link:nth-child(4) { animation-delay: 0.20s; }
+        .link:nth-child(5) { animation-delay: 0.25s; }
+        .link:nth-child(6) { animation-delay: 0.30s; }
+        .link:nth-child(7) { animation-delay: 0.35s; }
+
+        .link .icon {
+            flex: 0 0 24px;
+            width: 24px;
+            height: 24px;
+            display: grid;
+            place-items: center;
         }
+        .link .icon svg { width: 22px; height: 22px; }
+        .link .label { flex: 1; text-align: left; }
+        .link .chev {
+            opacity: 0;
+            transform: translateX(-6px);
+            transition: opacity 0.22s, transform 0.22s;
+            color: var(--accent);
+        }
+        .link:hover, .link:focus-visible {
+            transform: translateY(-3px);
+            border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+            background: color-mix(in srgb, var(--accent) 10%, var(--link-bg));
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+            outline: none;
+        }
+        .link:hover .chev, .link:focus-visible .chev {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        /* Shine sweep on hover */
+        .link::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.6s ease;
+        }
+        .link:hover::after { left: 130%; }
+
+        /* Partner / credential logos — on white chips so they read on any theme */
         .logos {
             display: flex;
+            align-items: center;
             justify-content: center;
-            margin-top: 20px;
+            gap: 16px;
+            margin: 26px 0 4px;
+            padding-top: 22px;
+            border-top: 1px solid var(--card-brd);
         }
         .logos img {
-            margin: 0 10px;
-            border-radius: 0;
+            height: 58px;
+            width: auto;
+            padding: 8px 14px;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+            transition: transform 0.25s, box-shadow 0.25s;
         }
+        .logos img:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
+        }
+
         footer {
+            margin-top: 22px;
+            font-size: 12.5px;
+            color: var(--text-dim);
             text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #A5ACAF; /* Wolf Grey */
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        /* Theme toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 18px;
+            right: 18px;
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+            color: var(--text);
+            background: var(--card-bg);
+            border: 1px solid var(--card-brd);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: transform 0.25s, background-color 0.25s;
+            z-index: 10;
+        }
+        .theme-toggle:hover { transform: rotate(20deg) scale(1.08); }
+        .theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        .theme-toggle svg { width: 20px; height: 20px; }
+        .theme-toggle .moon { display: none; }
+        [data-theme="dark"] .theme-toggle .sun { display: none; }
+        [data-theme="dark"] .theme-toggle .moon { display: block; }
+
+        @media (max-width: 420px) {
+            .container { padding: 34px 22px 24px; }
+            h1 { font-size: 23px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="img/profilesportpicture.jpg" alt="Photo of Adrien">
+    <div class="aurora" aria-hidden="true"></div>
+
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme">
+        <!-- sun -->
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        </svg>
+        <!-- moon -->
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+    </button>
+
+    <main class="container">
+        <div class="avatar-wrap">
+            <div class="avatar-ring" aria-hidden="true"></div>
+            <img class="avatar" src="img/profilesportpicture.jpg" alt="Portrait of Adrien Clerbois" width="132" height="132">
+            <span class="badge" title="Microsoft MVP" aria-label="Microsoft MVP verified">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5"/>
+                </svg>
+            </span>
+        </div>
+
         <h1>Adrien Clerbois</h1>
-        <h2>Sense of Tech, Microsoft MVP</h2>
-        <div class="links">
-            <a href="https://www.facebook.com/adrien.clerbois/" target="_blank">Facebook</a>
-            <a href="https://x.com/aclerbois" target="_blank">X</a>
-            <a href="https://mvp.microsoft.com/en-US/MVP/profile/2b728ade-7733-e611-8129-c4346bac7bfc" target="_blank">Microsoft MVP</a>
-            <a href="https://www.linkedin.com/in/aclerbois" target="_blank">LinkedIn</a>
-            <a href="https://github.com/aclerbois" target="_blank">GitHub</a>
-            <a href="mailto:adrien@senseof.tech" rel="nofollow">Email</a>
+        <p class="tagline">Founder of Sense of Tech · Microsoft MVP</p>
+        <div class="pills">
+            <span class="pill">☁️ Azure</span>
+            <span class="pill">⚡ .NET</span>
+            <span class="pill">🚀 Cloud &amp; DevOps</span>
         </div>
+
+        <nav class="links" aria-label="Social links">
+            <a class="link" href="https://blog.senseof.tech" target="_blank" rel="noopener">
+                <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5" fill="var(--accent)" stroke="none"/></svg>
+                </span>
+                <span class="label">Blog · Sense of Tech</span>
+                <span class="chev" aria-hidden="true">→</span>
+            </a>
+
+            <a class="link" href="https://www.linkedin.com/in/aclerbois" target="_blank" rel="noopener">
+                <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+                </span>
+                <span class="label">LinkedIn</span>
+                <span class="chev" aria-hidden="true">→</span>
+            </a>
+
+            <a class="link" href="https://github.com/aclerbois" target="_blank" rel="noopener">
+                <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg>
+                </span>
+                <span class="label">GitHub</span>
+                <span class="chev" aria-hidden="true">→</span>
+            </a>
+
+            <a class="link" href="https://mvp.microsoft.com/en-US/MVP/profile/2b728ade-7733-e611-8129-c4346bac7bfc" target="_blank" rel="noopener">
+                <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 23 23"><path fill="#F25022" d="M1 1h10v10H1z"/><path fill="#7FBA00" d="M12 1h10v10H12z"/><path fill="#00A4EF" d="M1 12h10v10H1z"/><path fill="#FFB900" d="M12 12h10v10H12z"/></svg>
+                </span>
+                <span class="label">Microsoft MVP Profile</span>
+                <span class="chev" aria-hidden="true">→</span>
+            </a>
+
+            <a class="link" href="https://x.com/aclerbois" target="_blank" rel="noopener">
+                <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.6h3.68l-8.04 9.19L24 22.4h-7.4l-5.8-7.58-6.63 7.58H.49l8.6-9.83L0 1.6h7.59l5.24 6.93zm-1.29 18.6h2.04L6.48 3.7H4.29z"/></svg>
+                </span>
+                <span class="label">X (Twitter)</span>
+                <span class="chev" aria-hidden="true">→</span>
+            </a>
+
+            <a class="link" href="https://www.facebook.com/adrien.clerbois/" target="_blank" rel="noopener">
+                <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+                </span>
+                <span class="label">Facebook</span>
+                <span class="chev" aria-hidden="true">→</span>
+            </a>
+
+            <a class="link" href="mailto:adrien@senseof.tech" rel="nofollow">
+                <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7L22 6"/></svg>
+                </span>
+                <span class="label">Email me</span>
+                <span class="chev" aria-hidden="true">→</span>
+            </a>
+        </nav>
+
         <div class="logos">
-            <img src="img/mvp.svg" alt="Microsoft MVP" width="100">
-            <img src="img/sense-of-tech.png" alt="Sense of Tech" width="100">
+            <img src="img/mvp.svg" alt="Microsoft MVP" height="58">
+            <img src="img/sense-of-tech.png" alt="Sense of Tech" height="58">
         </div>
-    </div>
+    </main>
+
     <footer>
-        <p>&copy; 2025 by AClerbois and Sense of Tech. All rights reserved.</p>
+        <p>&copy; <span id="year">2026</span> Adrien Clerbois · <a href="https://senseof.tech" target="_blank" rel="noopener">Sense of Tech</a></p>
     </footer>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var stored = localStorage.getItem('theme');
+            if (stored) {
+                root.setAttribute('data-theme', stored);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                root.setAttribute('data-theme', 'light');
+            }
+
+            var toggle = document.getElementById('themeToggle');
+            toggle.addEventListener('click', function () {
+                var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', next);
+                localStorage.setItem('theme', next);
+                document.querySelector('meta[name="theme-color"]')
+                    .setAttribute('content', next === 'dark' ? '#002244' : '#eef2f5');
+            });
+
+            document.getElementById('year').textContent = new Date().getFullYear();
+        })();
+    </script>
 </body>
 </html>
